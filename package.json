@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "ndbstart": "ndb node index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "immer": "^1.12.1",
     "immutable": "^4.0.0-rc.12",
     "seamless-immutable": "^7.1.4"
   }

@@ -1,5 +1,6 @@
 const Immutable = require('immutable')
 const SeamImmutable = require("seamless-immutable").static;
+const { produce } = require("immer")
 
 const testData = Array
   .from({ length: 5000 }, (v, i) => i)
@@ -32,3 +33,12 @@ const setSeamImmutableData = SeamImmutable
   .set(seamImmutableTestData, "99", "測試 Seamless-Immutable set");
 console.timeEnd('3.測試Seamless-Immutable_set')
 console.log(setSeamImmutableData['99'])
+
+
+
+console.time('4.測試 immer produce update')
+const updatedTodosObj = produce(testData, draft => {
+  draft["99"] = '測試 immer update'
+})
+console.timeEnd('4.測試 immer produce update')
+console.log(updatedTodosObj['99'])
